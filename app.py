@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 
-def create_email_signature(name, role, phone, name_font_size=70, role_font_size=40, phone_font_size=40):
+def create_email_signature(name, role, phone, name_font_size, role_font_size, phone_font_size):
     image = Image.open("signature.png")
     draw = ImageDraw.Draw(image)
     font_name = ImageFont.truetype("./font/Poppins-Bold.ttf", name_font_size)
@@ -18,9 +18,9 @@ def create_email_signature(name, role, phone, name_font_size=70, role_font_size=
     # Name
     draw.text((975.2, 63.9), name, font=font_name, fill="white")
     # Role
-    draw.text((972.6, 170), role, font=font_role, fill="white")
+    draw.text((975.2, 170), role, font=font_role, fill="white")
     # Phone
-    draw.text((1068.1, 257.8), text=phone, font=font_phone, fill="white")
+    draw.text((1068.1, 250), text=phone, font=font_phone, fill="white")
 
     return image
 
@@ -38,9 +38,9 @@ phone = signature_form.text_input("Your phone number")
 # Font settings
 sidebar.title("Font settings")
 # TODO: Changing the sidebar values refreshes the page, which is not ideal
-name_font_size = sidebar.slider("Name font size", 0, 100, 70)
-role_font_size = sidebar.slider("Role font size", 0, 100, 40)
-phone_font_size = sidebar.slider("Phone font size", 0, 100, 40)
+name_font_size = sidebar.slider("Name font size", 0, 100, 80)
+role_font_size = sidebar.slider("Role font size", 0, 100, 45)
+phone_font_size = sidebar.slider("Phone font size", 0, 100, 45)
 
 submit = signature_form.form_submit_button(label="Create email signature")
 
