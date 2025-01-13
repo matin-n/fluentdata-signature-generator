@@ -9,18 +9,19 @@ st.set_page_config(
 
 
 def create_email_signature(name, role, phone, name_font_size, role_font_size, phone_font_size):
-    image = Image.open("signature.png")
+    image = Image.open("asset.png")
     draw = ImageDraw.Draw(image)
     font_name = ImageFont.truetype("./font/Poppins-Bold.ttf", name_font_size)
     font_role = ImageFont.truetype("./font/Poppins-Italic.ttf", role_font_size)
     font_phone = ImageFont.truetype("./font/Poppins-Regular.ttf", phone_font_size)
 
     # Name
-    draw.text((975.2, 63.9), name, font=font_name, fill="white")
+    draw.text((1200, 80), name, font=font_name, fill="white")
     # Role
-    draw.text((975.2, 170), role, font=font_role, fill="white")
+    draw.text((1200, 220), role, font=font_role, fill="white")
     # Phone
-    draw.text((1068.1, 250), text=phone, font=font_phone, fill="white")
+    draw.text((1250, 285), text=phone, font=font_phone, fill="white")
+
 
     return image
 
